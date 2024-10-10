@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ppai5276a8bi"]
+
+[ext_resource type="Texture2D" uid="uid://h2b3tufvcguc" path="res://мара пропуск_Монтажная область 1.png" id="1_p65ap"]
+[ext_resource type="Script" path="res://scripts/base_card.gd" id="2_rmtuh"]
+[ext_resource type="Script" path="res://Scripts/ItemHoverScript.gd" id="3_m3cng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh8st"]
+size = Vector2(1007.39, 584.937)
+
+[node name="BaseCard" type="Sprite2D"]
+position = Vector2(-2.38419e-07, -4.76837e-07)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_p65ap")
+script = ExtResource("2_rmtuh")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_m3cng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.000976563, 0.000976563)
+shape = SubResource("RectangleShape2D_hh8st")

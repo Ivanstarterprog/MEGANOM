@@ -1,0 +1,235 @@
+[gd_scene load_steps=24 format=3 uid="uid://dj58xx7sfr3m"]
+
+[ext_resource type="Texture2D" uid="uid://bq2t6o3iyqn6h" path="res://Img/Будка.png" id="1_7dfqx"]
+[ext_resource type="Texture2D" uid="uid://m3sdiq282csr" path="res://Img/Кнопка/кнопка пропуска.png" id="2_1c0y8"]
+[ext_resource type="Texture2D" uid="uid://baqoqdgaurcoa" path="res://Img/Шалфей/шалфей.png" id="3_2xplg"]
+[ext_resource type="Script" path="res://Scripts/ItemHoverScript.gd" id="3_20lyu"]
+[ext_resource type="Script" path="res://Scenes/кнопка_пропуска.gd" id="3_cvs4f"]
+[ext_resource type="Texture2D" uid="uid://bssdqwkddhtk" path="res://Img/Часы/часы.png" id="4_r2oml"]
+[ext_resource type="Texture2D" uid="uid://bdevvaimwrqgp" path="res://Img/От Мары/от мары.png" id="5_woy0h"]
+[ext_resource type="Texture2D" uid="uid://d1kmnshwcgw11" path="res://Img/Записки Охраника/записки охранника.png" id="6_sw7dk"]
+[ext_resource type="Texture2D" uid="uid://dpei1bp3jt1gb" path="res://Img/Подкова/подкова.png" id="7_st6da"]
+[ext_resource type="Texture2D" uid="uid://bxf1nede64hsd" path="res://Img/Мулет/мулет.png" id="8_3veru"]
+[ext_resource type="Script" path="res://Scenes/от_мары.gd" id="8_jgqax"]
+[ext_resource type="Texture2D" uid="uid://dqkiob12isa2b" path="res://Img/Бутерброд/ФреймОдин.png" id="8_w8aqp"]
+[ext_resource type="Texture2D" uid="uid://cquw0vswrbpwl" path="res://Img/Бутерброд/бутер.png" id="9_qkb5s"]
+[ext_resource type="Script" path="res://Img/Бутерброд/ButerScript.gd" id="10_hyl64"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8775"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1c0y8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebyfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2xplg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nx3k2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_r2oml")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7m73"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_woy0h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8h1sc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_sw7dk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7cmyo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_w8aqp")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_qkb5s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2e12h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_st6da")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gigij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_3veru")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1hi5"]
+radius = 137.606
+
+[node name="Будка" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="Будка" type="Sprite2D" parent="."]
+texture = ExtResource("1_7dfqx")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="КнопкаПропуска" type="AnimatedSprite2D" parent="."]
+position = Vector2(1297, 820)
+scale = Vector2(0.398515, 0.370554)
+sprite_frames = SubResource("SpriteFrames_o8775")
+script = ExtResource("3_cvs4f")
+
+[node name="Area2D" type="Area2D" parent="КнопкаПропуска"]
+z_index = 4
+script = ExtResource("3_20lyu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="КнопкаПропуска/Area2D"]
+position = Vector2(-386.435, 167.317)
+polygon = PackedVector2Array(2.50928, -8.09595, -5.01855, -53.9731, 37.6396, -132.234, 67.7515, -213.194, 85.3167, -286.058, 95.354, -329.237, 607.254, -331.935, 644.894, -53.9731, 526.956, 5.39746, -2.50928, 0)
+
+[node name="Шалфей" type="AnimatedSprite2D" parent="."]
+position = Vector2(1562, 778)
+scale = Vector2(0.314356, 0.314356)
+sprite_frames = SubResource("SpriteFrames_ebyfd")
+
+[node name="Area2D" type="Area2D" parent="Шалфей"]
+position = Vector2(-400.819, -111.339)
+script = ExtResource("3_20lyu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Шалфей/Area2D"]
+position = Vector2(-9.54371, 108.158)
+polygon = PackedVector2Array(0, 0, 73.1655, -15.9055, 111.339, -41.3545, 143.15, -41.3545, 194.048, -9.54321, 209.953, 25.449, 209.953, 57.26, 222.678, 85.8899, 365.828, 73.1655, 391.276, 73.1655, 429.45, -25.4487, 419.906, -28.6299, 445.355, -82.7087, 461.261, -98.6143, 473.985, -95.4331, 470.804, -82.7087, 426.269, 15.9055, 404.001, 76.3467, 435.812, 73.1655, 521.702, -25.4487, 505.796, -38.1733, 556.694, -85.8899, 569.418, -85.8899, 572.6, -69.9844, 553.513, -41.3545, 454.898, 73.1655, 477.166, 73.1655, 613.954, -15.9055, 601.229, -31.811, 639.403, -60.4409, 658.489, -57.26, 655.308, -41.3545, 642.584, -22.2678, 496.253, 73.1655, 563.056, 69.9844, 642.584, 25.449, 652.127, 15.9055, 706.206, -15.9055, 715.749, -12.7244, 715.749, 3.18115, 677.576, 25.449, 652.127, 34.9922, 591.686, 69.9844, 785.733, 31.811, 801.639, 44.5354, 801.639, 54.0789, 792.096, 69.9844, 785.733, 85.8899, 601.229, 133.606, 547.15, 248.126, 480.347, 295.843, 410.363, 311.749, 334.017, 314.93, 235.402, 299.024, 187.686, 273.575, 168.599, 244.945, 124.063, 222.677, 101.795, 190.866, 92.2524, 168.599, 82.709, 44.5354, 73.1655, 12.7244)
+
+[node name="Часы" type="AnimatedSprite2D" parent="."]
+position = Vector2(385, 454)
+scale = Vector2(0.425743, 0.427667)
+sprite_frames = SubResource("SpriteFrames_nx3k2")
+
+[node name="Area2D" type="Area2D" parent="Часы"]
+script = ExtResource("3_20lyu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Часы/Area2D"]
+position = Vector2(-211.395, 264.224)
+polygon = PackedVector2Array(-11.7442, -7.01477, -11.7442, -32.7357, -63.4185, -201.091, -98.6511, -273.577, -79.8604, -301.637, -49.3255, -292.283, -28.186, -250.195, -9.39532, -236.165, -9.39532, -383.476, -131.535, -395.167, -187.907, -444.271, -192.604, -467.654, -159.721, -455.962, -136.232, -434.918, 171.465, -685.113, 115.093, -757.599, 84.558, -766.952, 110.395, -799.688, 202, -708.495, 286.558, -790.335, 310.046, -759.937, 288.907, -757.599, 223.139, -699.142, 549.627, -446.609, 596.604, -467.654, 596.604, -437.256, 577.813, -409.197, 505, -441.933, 483.86, -397.506, 453.325, -388.152, 432.186, -336.711, 436.883, -259.548, 462.72, -275.916, 467.418, -310.99, 507.348, -313.328, 519.093, -275.916, 472.116, -159.002, 453.325, -16.3679, 375.814, -9.35303, 340.581, -37.4122, 220.79, 0, 101, -35.074, 56.372, -9.35303)
+
+[node name="ОтМары" type="AnimatedSprite2D" parent="."]
+position = Vector2(520, 775)
+scale = Vector2(0.34901, 0.34901)
+sprite_frames = SubResource("SpriteFrames_s7m73")
+script = ExtResource("8_jgqax")
+
+[node name="Area2D" type="Area2D" parent="ОтМары"]
+script = ExtResource("3_20lyu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ОтМары/Area2D"]
+position = Vector2(-355.291, 11.461)
+polygon = PackedVector2Array(-5.73047, 2.86523, 203.433, -28.6526, 538.667, -28.6526, 704.851, 11.4609, 701.986, 160.454, 343.83, 232.085, 266.468, 223.489, -22.922, 148.993, -37.2482, 106.014, -37.2482, 83.0923, -20.0566, 60.1702, -25.7872, 20.0566)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ОтМары/Area2D"]
+position = Vector2(-154.723, -11.461)
+polygon = PackedVector2Array(0, 2.86523, 5.73047, -8.5957, 8.5957, -65.9006, 85.9574, -88.8225, 174.78, -100.284, 277.929, -94.553, 323.773, -85.9573, 332.369, -83.092, 335.234, -22.9219, 340.964, -11.4609, 343.83, 5.73047)
+
+[node name="ЗапискиОхранника" type="AnimatedSprite2D" parent="."]
+position = Vector2(1502, 523)
+scale = Vector2(0.250619, 0.250619)
+sprite_frames = SubResource("SpriteFrames_8h1sc")
+
+[node name="Area2D" type="Area2D" parent="ЗапискиОхранника"]
+position = Vector2(-351.131, -231.427)
+script = ExtResource("3_20lyu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ЗапискиОхранника/Area2D"]
+polygon = PackedVector2Array(23.9404, 3.99011, 522.706, 7.98022, 522.706, 71.8221, 558.617, 59.8518, 758.123, 562.607, 618.469, 606.498, 650.39, 698.271, 179.555, 754.133, 171.575, 658.37, -43.8916, 638.419, 27.9307, 343.15, 0, 15.9604, 3.98975, 7.98022)
+
+[node name="Бутер" type="AnimatedSprite2D" parent="."]
+position = Vector2(217, 973)
+scale = Vector2(0.154445, 0.154445)
+sprite_frames = SubResource("SpriteFrames_7cmyo")
+script = ExtResource("10_hyl64")
+
+[node name="Area2D" type="Area2D" parent="Бутер"]
+script = ExtResource("3_20lyu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Бутер/Area2D"]
+position = Vector2(-964.742, 32.3739)
+polygon = PackedVector2Array(6.47476, -6.47461, 97.1216, -71.2222, 258.991, -110.071, 401.436, -200.718, 608.629, -284.89, 718.7, -271.94, 757.549, -246.042, 848.196, -297.839, 977.691, -317.264, 1165.46, -317.264, 1282.01, -291.365, 1443.88, -297.839, 1586.32, -246.042, 1605.74, -142.445, 1903.58, -38.8486, 1942.43, 6.4751, 1903.58, 58.2729, 1612.22, 161.87, 1566.9, 168.344, 1560.42, 207.193, 1282.01, 252.517, 893.519, 258.991, 537.406, 239.567, 349.638, 200.718, 343.163, 161.87, 123.021, 110.071, 12.9496, 45.3237)
+
+[node name="Подкова" type="AnimatedSprite2D" parent="."]
+position = Vector2(496, 162)
+scale = Vector2(0.160891, 0.160891)
+sprite_frames = SubResource("SpriteFrames_2e12h")
+
+[node name="Area2D" type="Area2D" parent="Подкова"]
+script = ExtResource("3_20lyu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Подкова/Area2D"]
+position = Vector2(-74.5847, 472.37)
+polygon = PackedVector2Array(-12.4309, -12.4308, -12.4309, -12.4308, -43.5078, -55.9385, -217.539, -229.969, -292.123, -372.923, -329.416, -515.877, -310.77, -658.831, -248.616, -752.062, -111.877, -876.37, 31.0769, -957.17, 192.677, -1006.89, 279.692, -1006.89, 348.062, -982.031, 410.216, -926.093, 466.154, -820.431, 478.585, -689.908, 453.723, -540.739, 292.123, -12.4308)
+
+[node name="Мулет" type="AnimatedSprite2D" parent="."]
+position = Vector2(1561, 247)
+scale = Vector2(0.354038, 0.339939)
+sprite_frames = SubResource("SpriteFrames_gigij")
+
+[node name="Area2D" type="Area2D" parent="Мулет"]
+script = ExtResource("3_20lyu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Мулет/Area2D"]
+position = Vector2(-240.087, 250.045)
+shape = SubResource("CircleShape2D_c1hi5")
