@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6oc3nu6ciagf"]
+
+[ext_resource type="Script" path="res://script_templates/AnimatedSprite2D/BaseCharScript.gd" id="1_c8ilv"]
+[ext_resource type="Script" path="res://Scripts/ItemHoverScript.gd" id="2_lomjb"]
+[ext_resource type="Script" path="res://Scripts/PointsOnScreen.gd" id="3_7xn07"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nkig"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"disguase",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"real",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"undisclosed",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjeit"]
+size = Vector2(306, 462)
+
+[node name="CharacterBase" type="AnimatedSprite2D"]
+position = Vector2(174, 212)
+scale = Vector2(0.640332, 0.708514)
+sprite_frames = SubResource("SpriteFrames_1nkig")
+animation = &"real"
+script = ExtResource("1_c8ilv")
+name_of_character = "Test"
+speed = 202
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-221.76, -350.734)
+scale = Vector2(1.56169, 1.41141)
+script = ExtResource("2_lomjb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(131, 264)
+shape = SubResource("RectangleShape2D_cjeit")
+
+[node name="Points" type="Node2D" parent="."]
+position = Vector2(28, -40)
+script = ExtResource("3_7xn07")
+
+[node name="MiddlePoint" type="Node2D" parent="Points"]
+
+[node name="LetInPoint" type="Node2D" parent="Points"]
+
+[node name="DontLetInPoint" type="Node2D" parent="Points"]

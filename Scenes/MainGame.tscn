@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3wod7dgb7tml"]
+
+[ext_resource type="Texture2D" uid="uid://2fve87d8153j" path="res://Img/Фоны/ФонДень.jpg" id="1_7a73y"]
+[ext_resource type="PackedScene" uid="uid://dj58xx7sfr3m" path="res://Scenes/Интерфейс.tscn" id="1_jt72a"]
+[ext_resource type="PackedScene" uid="uid://cj6pnsahee5c6" path="res://GameObserver/GameObserver.tscn" id="1_vmm66"]
+[ext_resource type="Texture2D" uid="uid://dywwwno5m8paf" path="res://Img/Фоны/ФонВечер.jpg" id="2_uhgxi"]
+[ext_resource type="Texture2D" uid="uid://dfvt6ry0077xy" path="res://Img/Фоны/ФонУтро.jpg" id="3_xfhl4"]
+[ext_resource type="Script" path="res://Scripts/BackgroundChange.gd" id="4_5uwem"]
+[ext_resource type="PackedScene" uid="uid://c6oc3nu6ciagf" path="res://Characters/Мара/Char/Mara.tscn" id="7_6pc2o"]
+[ext_resource type="PackedScene" uid="uid://ppai5276a8bi" path="res://Card/BaseCard.tscn" id="8_vn4os"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j076b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7a73y")
+}],
+"loop": true,
+"name": &"Day",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uhgxi")
+}],
+"loop": true,
+"name": &"Evening",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xfhl4")
+}],
+"loop": true,
+"name": &"Morning",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_att0v"]
+resource_name = "CharactersObserver"
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="MainGame" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="GameObserver" parent="." instance=ExtResource("1_vmm66")]
+
+[node name="ФонДень" type="AnimatedSprite2D" parent="GameObserver"]
+scale = Vector2(2.38213, 2.46485)
+sprite_frames = SubResource("SpriteFrames_j076b")
+animation = &"Day"
+centered = false
+script = ExtResource("4_5uwem")
+GameTimeMinutes = 1
+metadata/_edit_lock_ = true
+
+[node name="Будка" parent="GameObserver" instance=ExtResource("1_jt72a")]
+z_index = 1
+
+[node name="Персонажи" type="Node2D" parent="GameObserver"]
+script = SubResource("GDScript_att0v")
+
+[node name="Mara" parent="GameObserver" instance=ExtResource("7_6pc2o")]
+position = Vector2(715, 591)
+
+[node name="Карта" parent="GameObserver" instance=ExtResource("8_vn4os")]
+position = Vector2(941, 824)
+
+[node name="Место под карту" type="Node2D" parent="GameObserver"]
+position = Vector2(955, 817)
